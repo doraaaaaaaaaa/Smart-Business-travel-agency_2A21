@@ -6,7 +6,7 @@
 
 hebergement::hebergement()
 {code_h=0; type_h=" "; nom_h=" ";adresse_h=" ";prix_h=0;FAX_h=0;}
-hebergement::hebergement(int code_h ,QString type_h ,QString nom_h,QString adresse_h,float prix_h,int FAX_h)
+hebergement::hebergement(int code_h ,QString type_h ,QString nom_h,QString adresse_h,int prix_h,int FAX_h)
 {
     this->code_h=code_h;
     this->type_h=type_h;
@@ -28,19 +28,22 @@ hebergement::hebergement(int code_h ,QString type_h ,QString nom_h,QString adres
  void hebergement::setType (QString t){type_h=t;}
  void hebergement::setNom(QString n){nom_h=n;}
  void hebergement::setAdresse (QString ad){adresse_h=ad;}
- void hebergement::setPrix(float prix){this->prix_h=prix_h;}
- void hebergement::setFAX(int FAX){this->FAX_h=FAX_h;}
-bool hebergement::ajouter()
+ void hebergement::setPrix(int prix){this->prix_h=prix;}
+ void hebergement::setFAX(int FAX){this->FAX_h=FAX;}
+
+ bool hebergement::ajouter()
 {
     QSqlQuery query;
     QString res=QString::number(code_h);
-    query.prepare("inesrt into hebergement (code_h,type_h,nom_h,adresse_h,prix_h,FAX_h" "values(:code_h,:type_h,:nom_h,:adresse_h,:prix_h,:FAX_h");
+    QString res1=QString::number(prix_h);
+    query.prepare("insert into hebergement (code_h,type_h,nom_h,adresse_h,prix_h,FAX_h)"
+                  "values(:code_h,:type_h,:nom_h,:adresse_h,:prix_h,:FAX_h)");
     //Création des variables liées
     query.bindValue(":code_h",res);
-    query.bindValue(":nom_h",nom_h);
     query.bindValue(":type_h",type_h);
+    query.bindValue(":nom_h",nom_h);
     query.bindValue(":adresse_h",adresse_h);
-    query.bindValue(":prix_h",prix_h);
+    query.bindValue(":prix_h",res1);
     query.bindValue(":FAX_h",FAX_h);
 
     return query.exec();
@@ -61,7 +64,22 @@ bool hebergement::ajouter()
  {
      QSqlQuery query;
      QString res=QString::number(code_h);
-     query.prepare("Delete from hbergement where Code_H= :code_h");
+     query.prepare("Delete from hebergement where Code_H= :code_h");
      query.bindValue(":code_h",res);
      return query.exec();
  }
+ bool hebergement ::modifier(int code_h)
+ {
+                        QSqlQuery query;
+                        QString res=QString::number(code_h);
+                        QString res1=QString::number(prix_h);
+
+     query.prepare("UPDATE HEBERGEMENT SET type_h=:type_h,nom_h=:nom_h,adresse_h=:adresse_h,prix_h=:prix_h,FAX_h=:FAX_h WHERE code_h=:code_h ");
+     query.bindValue(":code_h",res);
+     query.bindValue(":type_h",type_h);
+     query.bindValue(":nom_h",nom_h);
+     query.bindValue(":adresse_h",adresse_h);
+     query.bindValue(":prix_h",res1);
+     query.bindValue(":FAX_h",FAX_h);
+
+                      return query.exec();}

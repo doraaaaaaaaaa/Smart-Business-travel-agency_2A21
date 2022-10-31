@@ -17,6 +17,12 @@ private slots:
 void on_pushButton_ajouter_clicked();
 void on_pushButton_supprimer_clicked();
 
+void on_pushButton_clicked(); //Ajout
+
+void on_pushButton_5_clicked(); //Suppr
+
+void on_pushButton_2_clicked(); //Modif
+
 private:
     Ui::MainWindow *ui;
     hebergement H;

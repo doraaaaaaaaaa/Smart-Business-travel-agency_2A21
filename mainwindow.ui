@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>943</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>70</y>
-      <width>261</width>
-      <height>291</height>
+      <y>90</y>
+      <width>311</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="title">
@@ -42,7 +42,7 @@
     <widget class="QLineEdit" name="lineEdit_code_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>40</y>
        <width>113</width>
        <height>20</height>
@@ -117,7 +117,7 @@
     <widget class="QLineEdit" name="lineEdit_type_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>70</y>
        <width>113</width>
        <height>20</height>
@@ -127,7 +127,7 @@
     <widget class="QLineEdit" name="lineEdit_nom_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>100</y>
        <width>113</width>
        <height>20</height>
@@ -137,7 +137,7 @@
     <widget class="QLineEdit" name="lineEdit_prix_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>170</y>
        <width>113</width>
        <height>20</height>
@@ -147,7 +147,7 @@
     <widget class="QLineEdit" name="lineEdit_adresse_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>130</y>
        <width>113</width>
        <height>20</height>
@@ -157,7 +157,7 @@
     <widget class="QLineEdit" name="lineEdit_FAX_h">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>170</x>
        <y>200</y>
        <width>113</width>
        <height>20</height>
@@ -169,25 +169,33 @@
       <rect>
        <x>40</x>
        <y>250</y>
-       <width>80</width>
-       <height>18</height>
+       <width>81</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Ajouter</string>
      </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/new/prefix1/plus1.jpg</normaloff>:/new/prefix1/plus1.jpg</iconset>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>160</x>
        <y>250</y>
-       <width>80</width>
-       <height>18</height>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Modifier</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/new/prefix1/modifier1.jpg</normaloff>:/new/prefix1/modifier1.jpg</iconset>
      </property>
     </widget>
    </widget>
@@ -196,8 +204,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>561</height>
+      <width>941</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="text">
@@ -213,10 +221,10 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>70</y>
-      <width>481</width>
-      <height>291</height>
+      <x>340</x>
+      <y>90</y>
+      <width>581</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="title">
@@ -225,7 +233,7 @@
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>30</y>
        <width>171</width>
        <height>16</height>
@@ -238,10 +246,10 @@
     <widget class="QRadioButton" name="radioButton">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>30</y>
-       <width>69</width>
-       <height>18</height>
+       <x>220</x>
+       <y>27</y>
+       <width>101</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -251,80 +259,58 @@
     <widget class="QRadioButton" name="radioButton_2">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>30</y>
-       <width>69</width>
-       <height>18</height>
+       <x>360</x>
+       <y>27</y>
+       <width>121</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
       <string>Le Nom</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableView">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>451</width>
-       <height>192</height>
-      </rect>
-     </property>
-     <column>
-      <property name="text">
-       <string>Code</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Type</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Nom</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Adresse</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Prix</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>FAX</string>
-      </property>
-     </column>
-    </widget>
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>260</y>
-       <width>80</width>
-       <height>18</height>
+       <x>410</x>
+       <y>280</y>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Rechercher</string>
      </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/new/prefix1/recherche.jpg</normaloff>:/new/prefix1/recherche.jpg</iconset>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>260</y>
-       <width>80</width>
-       <height>18</height>
+       <x>49</x>
+       <y>277</y>
+       <width>81</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Trier</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/new/prefix1/tri.png</normaloff>:/new/prefix1/tri.png</iconset>
+     </property>
+    </widget>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>481</width>
+       <height>191</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -332,9 +318,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>370</y>
-      <width>261</width>
-      <height>101</height>
+      <y>420</y>
+      <width>311</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="title">
@@ -344,9 +330,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
-       <width>121</width>
-       <height>16</height>
+       <y>40</y>
+       <width>131</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -356,9 +342,9 @@
     <widget class="QLineEdit" name="lineEdit_code_h2">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>30</y>
-       <width>113</width>
+       <x>152</x>
+       <y>50</y>
+       <width>121</width>
        <height>20</height>
       </rect>
      </property>
@@ -366,24 +352,28 @@
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>70</y>
-       <width>80</width>
-       <height>18</height>
+       <x>100</x>
+       <y>100</y>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Supprimer</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/new/prefix1/supp1.jpg</normaloff>:/new/prefix1/supp1.jpg</iconset>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>190</x>
       <y>20</y>
-      <width>241</width>
-      <height>21</height>
+      <width>501</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -408,13 +398,15 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>943</width>
      <height>17</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

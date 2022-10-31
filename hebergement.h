@@ -10,11 +10,11 @@ class hebergement
 private:
     QString nom_h,type_h,adresse_h;
     int code_h,FAX_h;
-    float prix_h;
+    int prix_h;
 public:
     //Constructeurs
     hebergement();
-    hebergement(int,QString,QString,QString,float,int);
+    hebergement(int,QString,QString,QString,int,int);
    //Getters
     int getCode_H();
     QString getType();
@@ -27,12 +27,13 @@ public:
     void setType (QString );
     void setNom(QString);
     void setAdresse (QString);
-    void setPrix(float);
+    void setPrix(int);
     void setFAX(int);
     //Fonctionnalités de Base relatives à entité Hebergement
     bool ajouter();
     QSqlQueryModel * afficher ();
     bool supprimer (int);
+    bool modifier(int);
 
 };
 
