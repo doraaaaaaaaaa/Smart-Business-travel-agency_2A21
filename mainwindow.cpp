@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->lineEdit_code_h->setValidator( new QIntValidator(0, 999999, this));
     ui->tableView->setModel(H.afficher());
+    //ui->code_h->setValidator( new QIntValidator(0, 99999999, this));
+    //ui->nom_h->setMaxLength(10);
+
 }
 
 MainWindow::~MainWindow()
