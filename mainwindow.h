@@ -1,30 +1,33 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "vol.h"
 #include <QMainWindow>
-#include <QMessageBox>
-#include "hebergement.h"
 
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-     explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 private slots:
-void on_pushButton_ajouter_clicked();
-void on_pushButton_supprimer_clicked();
+    void on_lajout_clicked();
 
-void on_pushButton_clicked(); //Ajout
+    void on_suplvol_clicked();
 
-void on_pushButton_5_clicked(); //Suppr
+    void on_tablvol_activated(const QModelIndex &index);
 
-void on_pushButton_2_clicked(); //Modif
+    void on_lmodifier_clicked();
 
 private:
     Ui::MainWindow *ui;
-    hebergement H;
+    vol v;
+
 };
+
 #endif // MAINWINDOW_H
