@@ -3,15 +3,12 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QDebug>
-
+#include<QModelIndex>
 class Connection
 {
-    QSqlDatabase db;
 public:
     Connection();
     bool createconnect();
-    void closeconnect();
 };
 
 #endif // CONNECTION_H
