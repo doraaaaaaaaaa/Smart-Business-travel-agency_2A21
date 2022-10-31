@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->lineEdit_code_h->setValidator( new QIntValidator(0, 999999, this));
     ui->tableView->setModel(H.afficher());
-    //ui->code_h->setValidator( new QIntValidator(0, 99999999, this));
-    //ui->nom_h->setMaxLength(10);
 
 }
 
@@ -37,7 +35,7 @@ void MainWindow::on_pushButton_clicked()   //Ajout
 {
     //Récupération des informations saisies dans les 6 champs
     int code_h=ui->lineEdit_code_h->text().toInt();
-    QString type_h=ui->lineEdit_type_h->text();
+    QString type_h=ui->lineEdit_type_h->currentText();
     QString nom_h=ui->lineEdit_nom_h->text();
     QString adresse_h=ui->lineEdit_adresse_h->text();
     int prix_h=ui->lineEdit_prix_h->text().toInt();
@@ -84,7 +82,7 @@ void MainWindow::on_pushButton_5_clicked() //Supprimer
 void MainWindow::on_pushButton_2_clicked() //Modif
 {
     int code_h=ui->lineEdit_code_h->text().toInt();
-        QString type_h=ui->lineEdit_type_h->text();
+        QString type_h=ui->lineEdit_type_h->currentText();
         QString nom_h=ui->lineEdit_nom_h->text();
         QString adresse_h=ui->lineEdit_adresse_h->text();
        int prix_h=ui->lineEdit_prix_h->text().toInt();
