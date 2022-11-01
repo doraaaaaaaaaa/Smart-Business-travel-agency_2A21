@@ -50,7 +50,7 @@ hebergement::hebergement(int code_h ,QString type_h ,QString nom_h,QString adres
 }
  QSqlQueryModel * hebergement::afficher()
  {
-     QSqlQueryModel * model=new QSqlQueryModel();
+     QSqlQueryModel * model=new QSqlQueryModel(); //Affichage selon un modele
      model->setQuery("select * from hebergement");
      model->setHeaderData(0,Qt::Horizontal,QObject::tr("Code"));
      model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
