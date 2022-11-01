@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 ui->afficher->setModel(p.afficher());
+//controle de saisie.
 ui->num_ajout->setValidator (new QIntValidator(0, 99999, this));
 ui->contact_ajout->setValidator (new QIntValidator(0, 99999999, this));
 

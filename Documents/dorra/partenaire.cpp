@@ -7,12 +7,13 @@
 #include<QString>
 #include <QMessageBox>
 
-Partenaire::Partenaire()
+Partenaire::Partenaire()//constructeur par defaut
 {    this->numero=0;
      this->contact=0;
      this->adresse="";
-     this->domaine="";}
- Partenaire::Partenaire(int n ,int c,QString d,QString a)
+     this->domaine="";
+}
+ Partenaire::Partenaire(int n ,int c,QString d,QString a)//constructeur de copie
  {this->numero=n;
  this->contact=c;
  this->adresse=a;
@@ -24,7 +25,7 @@ Partenaire::Partenaire()
      QSqlQuery query;
      QString numero_string=QString::number(numero);
      QString contact_string=QString::number(contact);
-     query.prepare("INSERT INTO PARTENAIRE (numero,domaine,adresse,contact) ""VALUES (:NUMERO_P, :DOMAINE, :ADRESSE, :CONTACT)");
+     query.prepare("INSERT INTO PARTENAIRE (NUMERO_P,domaine,adresse,contact) ""VALUES (:NUMERO_P, :DOMAINE, :ADRESSE, :CONTACT)");
      query.bindValue(":NUMERO_P",numero_string);
      query.bindValue(":CONTACT",contact_string);
      query.bindValue(":DOMAINE", domaine);
