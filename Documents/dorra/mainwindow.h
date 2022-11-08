@@ -23,6 +23,14 @@ private slots:
 
     void on_bouton_modif_clicked();
 
+    void on_afficher_activated(const QModelIndex &index);
+
+    void on_recherche_button_clicked();
+
+    void on_comboBox_2_activated(const QString &arg1);
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     Partenaire p;
