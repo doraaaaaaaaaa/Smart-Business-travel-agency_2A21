@@ -23,6 +23,16 @@ void on_pushButton_5_clicked(); //Suppr
 
 void on_pushButton_2_clicked(); //Modif
 
+void on_tableView_clicked(const QModelIndex &index);
+
+void on_radioButton_clicked();
+
+void on_triNom_clicked();
+
+void on_triPrix_clicked();
+
+void on_lineEdit_Rech_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     hebergement H;

@@ -83,3 +83,50 @@ hebergement::hebergement(int code_h ,QString type_h ,QString nom_h,QString adres
      query.bindValue(":FAX_h",FAX_h);
 
                       return query.exec();}
+ QSqlQueryModel *hebergement::triCode()
+  {
+      QSqlQueryModel * model=new QSqlQueryModel();
+      model->setQuery("SELECT * FROM HEBERGEMENT ORDER BY CODE_H");
+      model->setHeaderData(0,Qt::Horizontal,QObject::tr("Code"));
+      model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+      model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("Adresse"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix"));
+      model->setHeaderData(5,Qt::Horizontal,QObject::tr("FAX"));
+  return model;
+  }
+  QSqlQueryModel *hebergement::triNom()
+  {
+      QSqlQueryModel * model=new QSqlQueryModel();
+      model->setQuery("SELECT * FROM HEBERGEMENT ORDER BY NOM_H");
+      model->setHeaderData(0,Qt::Horizontal,QObject::tr("Code"));
+      model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+      model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("Adresse"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix"));
+      model->setHeaderData(5,Qt::Horizontal,QObject::tr("FAX"));
+  return model;
+}
+  QSqlQueryModel *hebergement::triPrix()
+   {
+       QSqlQueryModel * model=new QSqlQueryModel();
+       model->setQuery("SELECT * FROM HEBERGEMENT ORDER BY PRIX_H");
+       model->setHeaderData(0,Qt::Horizontal,QObject::tr("Code"));
+       model->setHeaderData(1,Qt::Horizontal,QObject::tr("Type"));
+       model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
+       model->setHeaderData(3,Qt::Horizontal,QObject::tr("Adresse"));
+       model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix"));
+       model->setHeaderData(5,Qt::Horizontal,QObject::tr("FAX"));
+   return model;
+   }
+  void hebergement::recherche(QTableView * table, QString rech)
+  {
+      QSqlQueryModel *model= new QSqlQueryModel();
+      QString code_string =QString::number(code_h);
+      QSqlQuery *query=new QSqlQuery;
+          query->prepare("select * from hebergement where code_h like '%"+rech+"%' or nom_h like '%"+rech+"%' or type_h like '%"+rech+"%' or adresse_h like '%"+rech+"%';");
+          query->exec();
+          model->setQuery(*query);
+          table->setModel(model);
+          table->show();
+  }

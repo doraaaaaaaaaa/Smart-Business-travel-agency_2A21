@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include<QSqlQueryModel>
 #include<QString>
+#include<QTableView>
 
 
 class hebergement
@@ -34,7 +35,10 @@ public:
     QSqlQueryModel * afficher ();
     bool supprimer (int);
     bool modifier(int);
-
+    QSqlQueryModel * triCode();
+    QSqlQueryModel * triNom();
+    QSqlQueryModel * triPrix();
+   void recherche(QTableView * , QString );
 };
 
 #endif // HEBERGEMENT_H
