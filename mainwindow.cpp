@@ -1,10 +1,23 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include"hebergement.h"
+#include "smtp.h"
+#include"ui_smtp.h"
+#include"picture.h"
 #include<QIntValidator>
 #include<QObject>
 #include<QMainWindow>
-#include <QSqlQueryModel>
+#include<QSqlQuery>
+#include <QDesktopServices>
+#include<QPrinter>
+#include<QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QPdfWriter>
+#include<QPainter>
+#include<QApplication>
+#include <QUrl>
+#include<QSqlQueryModel>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -26,16 +39,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-void MainWindow::on_pushButton_ajouter_clicked() //*
-{
-
-}
-
-void MainWindow::on_pushButton_supprimer_clicked() //*
-{
-
-
 }
 
 
@@ -112,7 +115,7 @@ void MainWindow::on_pushButton_2_clicked() //Modif
 }
 
 
-void MainWindow::on_tableView_clicked(const QModelIndex &index)
+void MainWindow::on_tableView_clicked(const QModelIndex &index) //Modif
 {
     ui->lineEdit_code_h->setText(ui->tableView->model()->data(ui->tableView->model()->index(index.row(),0)).toString());
        // ui->lineEdit_type_h->currentText(ui->tableView->model()->data(ui->tableView->model()->index(index.row(),1)).toString());
@@ -143,7 +146,7 @@ void MainWindow::on_triPrix_clicked()
 
 
 
-void MainWindow::on_lineEdit_Rech_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_Rech_textChanged(const QString &arg1) //Recherche
 {
     QString rech = ui->lineEdit_Rech->text();
                 H.recherche(ui->tableView,rech);
@@ -151,5 +154,87 @@ void MainWindow::on_lineEdit_Rech_textChanged(const QString &arg1)
                 {
                     ui->tableView->setModel(H.afficher());
                 }
+}
+
+
+
+void MainWindow::on_PDF_clicked()
+{
+
+    QString ach=ui->lineEdit_code_h->text()+".pdf";
+               QPdfWriter pdf("C:/Users/user/Documents/untitled/PDF/pdf.pdf"+ach);
+
+                                 QPainter painter(&pdf);
+                                int i = 4000;
+                                     painter.setPen(Qt::red);
+                                     painter.setFont(QFont("Impact", 30));
+                                     painter.drawText(2200,1400,"Liste des hebergements "+ui->lineEdit_code_h->text());
+                                     painter.setPen(Qt::black);
+                                     painter.setFont(QFont("impact", 50));
+                                     painter.drawRect(0,3000,9600,500);
+                                     painter.setFont(QFont("impact", 11));
+                                     painter.drawText(200,3300,"CODE_H");
+                                     painter.drawText(1200,3300,"TYPE_H");
+                                     painter.drawText(2400,3300,"NOM_H");
+                                     painter.drawText(4000,3300,"ADRESSE_H");
+                                     painter.drawText(5600,3300,"PRIX_H");
+                                     painter.drawText(6900,3300,"FAX_H");
+
+
+                                     QSqlQuery query;
+                                     query.prepare("select * from HEBERGEMENT");
+                                     query.exec();
+                                     painter.setFont(QFont("Arial",9));
+                                     while (query.next())
+                                     {
+                                         painter.drawText(200,i,query.value(0).toString());
+                                         painter.drawText(1200,i,query.value(1).toString());
+                                         painter.drawText(2400,i,query.value(2).toString());
+                                         painter.drawText(4000,i,query.value(3).toString());
+                                         painter.drawText(6000,i,query.value(4).toString());
+                                         painter.drawText(7000,i,query.value(5).toString());
+                                         painter.drawText(8400,i,query.value(6).toString());
+
+
+
+                                        i = i + 500;
+                                     }
+                                     int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+                                         if (reponse == QMessageBox::Yes)
+                                         {
+                                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/user/Documents/untitled/PDF/pdf.pdf"+ach));
+
+                                             painter.end();
+                                         }
+                                         if (reponse == QMessageBox::No)
+                                         {
+                                              painter.end();
+                                         }
+
+
+
+}
+
+
+void MainWindow::on_stat_clicked()
+{
+    s = new statistique();
+    s->setWindowTitle("Statistique des Hebergements");
+    s->choix_bar();
+    s->show();
+}
+
+
+
+void MainWindow::on_Send_mail_clicked()
+{
+    sm=new Mail(this);
+    sm->show();
+}
+
+void MainWindow::on_pushButton_Picture_clicked()
+{
+    p=new Picture(this);
+    p->show();
 }
 

@@ -1,4 +1,10 @@
 #include "connection.h"
+#include <QApplication>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlDriver>
+#include <QtSql/QSqlQuery>
+#include <QTextEdit>
+#include <QString>
 
 Connection::Connection()
 {

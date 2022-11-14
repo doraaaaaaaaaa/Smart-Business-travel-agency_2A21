@@ -1,6 +1,17 @@
 QT       += core gui
 QT +=sql
 QT += widgets
+QT += printsupport
+QT += core
+QT += core gui charts
+QT += charts
+QT += network
+QT += quick
+QT += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
+QT += gui
+QT+= sql
+QT += printsupport network
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,16 +24,27 @@ CONFIG +=console
 SOURCES += \
     connection.cpp \
     hebergement.cpp \
+    mail.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    picture.cpp \
+    smtp.cpp \
+    statistique.cpp
 
 HEADERS += \
     connection.h \
     hebergement.h \
-    mainwindow.h
+    mail.h \
+    mainwindow.h \
+    picture.h \
+    smtp.h \
+    statistique.h
 
 FORMS += \
-    mainwindow.ui
+    mail.ui \
+    mainwindow.ui \
+    picture.ui \
+    statistique.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

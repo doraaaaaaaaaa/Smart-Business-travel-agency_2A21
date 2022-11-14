@@ -4,6 +4,8 @@
 #include<QSqlQueryModel>
 #include<QString>
 #include<QTableView>
+#include<QPainter>
+#include<QPdfWriter>
 
 
 class hebergement
@@ -39,6 +41,7 @@ public:
     QSqlQueryModel * triNom();
     QSqlQueryModel * triPrix();
    void recherche(QTableView * , QString );
+   void telechargerPDF();
 };
 
 #endif // HEBERGEMENT_H

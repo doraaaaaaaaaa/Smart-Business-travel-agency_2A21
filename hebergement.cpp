@@ -1,8 +1,14 @@
 #include "hebergement.h"
 #include<QSqlQuery>
+#include <QString>
 #include<QtDebug>
 #include<QSqlQueryModel>
+#include <iostream>
 #include<QObject>
+#include<QPainter>
+#include<QPrinter>
+#include<QPagedPaintDevice>
+#include<QPdfWriter>
 
 hebergement::hebergement()
 {code_h=0; type_h=" "; nom_h=" ";adresse_h=" ";prix_h=0;FAX_h=0;}
