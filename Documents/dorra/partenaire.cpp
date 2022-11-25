@@ -1,4 +1,5 @@
 #include "partenaire.h"
+#include "arduino.h"
 #include<QString>
 #include<QSqlQueryModel>
 #include<QSqlQuery>
@@ -17,7 +18,10 @@
 #include <QApplication>
 #include <QtCore>
 #include <QPdfWriter>
-#include <QPainter>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QPagedPaintDevice>
+
 
 
 Partenaire::Partenaire()//constructeur par defaut
@@ -92,7 +96,7 @@ Partenaire::Partenaire()//constructeur par defaut
 
      return query.exec();
  }
- QSqlQueryModel * Partenaire::recherche(QString numero)/*cherche un producteur de meme numero*/
+ QSqlQueryModel * Partenaire::recherche(QString numero)/*cherche un partenaire de meme numero*/
  {
      QSqlQueryModel * model= new QSqlQueryModel();
 
@@ -130,35 +134,59 @@ Partenaire::Partenaire()//constructeur par defaut
      return model;
 
  }
- void Partenaire::pdf()
- {
-     QPrinter printer;
-     printer.setOutputFormat(QPrinter::PdfFormat);
-                 printer.setOutputFileName("C:/Users/WIKI/Downloads/new_document.pdf");
-     QPainter painter;
-                painter.begin(&printer);
-              painter.drawText(30, 80, "partenaire ");
-               painter.drawText(10, 100, "test ");
-               QString str="yess pdf";
-               painter.drawText(10,120,str);
-               painter.end();
 
-               QString filename="D:/Downloads/new_document.pdf";
-               qDebug()<<"Print file name is "<<filename;
-               if(!filename.isEmpty())
-               {
+ void  Partenaire::telechargerPDF(){
 
 
-                  QPrinter printer;
-                   printer.setOutputFormat(QPrinter::PdfFormat);
-                   printer.setOutputFileName(filename);
+                      QPdfWriter pdf("C:/Users/WIKI/Desktop/2EME/pdf partenaire/part0");
+                      QPainter painter(&pdf);
+                     int i = 4000;
+                          painter.setPen(Qt::blue);//titre
+                          painter.setFont(QFont("Arial", 30));
+                          painter.drawText(1100,1200,"LISTES DES PARTENAIRES");
+                          painter.setPen(Qt::black);
+                          painter.setFont(QFont("Arial",14));
+                         // painter.drawRect(100,100,7300,2600);
+                          painter.drawRect(0,3000,9600,500);
+                          painter.setFont(QFont("Arial",11));
+                          painter.drawText(200,3300,"NOM");
+                          painter.drawText(1300,3300,"PRENOM");
+                          painter.drawText(2700,3300,"ADRESSE");
+                          painter.drawText(4000,3300,"CONTACT");
+                          painter.drawText(6500,3300,"NUMERO");
+                          painter.drawText(7700,3300,"DOMAINE");
 
-                   QPrintDialog dialog;
-                   dialog.setWindowTitle("print document");
-                   dialog.addEnabledOption(QAbstractPrintDialog::PrintSelection);
-                   dialog.exec();
-               }
-               else
-                   qDebug()<<"ereur";
+
+                          QSqlQuery query;
+
+                          query.prepare("select * from partenaire");
+                          query.exec();
+                          while (query.next())
+                          {
+                              painter.drawText(200,i,query.value(1).toString());
+                              painter.drawText(1300,i,query.value(0).toString());
+                              painter.drawText(2700,i,query.value(2).toString());
+                              painter.drawText(4000,i,query.value(3).toString());
+                              painter.drawText(6500,i,query.value(4).toString());
+                              painter.drawText(7700,i,query.value(5).toString());
+
+
+
+                             i = i + 500;
+                          }}
+
+ void ChercherFromArduino()
+
+ {Arduino a;
+     QByteArray d;
+
+     d=a.read_from_arduino();
+     if (d!="")
+     {
+         QSqlQueryModel * model= new QSqlQueryModel();
+
+         model->setQuery("SELECT * FROM PARTENAIRE WHERE NUMERO_P LIKE '"+d+"'  ");
+     }
+
 
  }

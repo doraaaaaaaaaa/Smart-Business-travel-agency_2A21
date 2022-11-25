@@ -1,6 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "partenaire.h"
+#include "localisation.h"
+#include "exportexcel.h"
+#include "localisation.h"
+#include "ui_localisation.h"
+#include <QFileDialog>
 #include<QSqlQueryModel>
 #include<QSqlQuery>
 #include<QtDebug>
@@ -8,6 +13,11 @@
 #include<QString>
 #include <QMessageBox>
 #include <QMainWindow>
+
+
+#include "QMessageBox"
+
+#include <QtCharts/QChartView>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -168,7 +178,57 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
 
 void MainWindow::on_pushButton_6_clicked()
 {
-    p.pdf();
+
+    p.telechargerPDF();
+
+            QMessageBox::information(nullptr,QObject::tr("OK"),
+                       QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
 
 
+    }
+
+
+
+
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    l = new localisation();
+    l->setWindowTitle("Map");
+    //l->map();
+    l->show();
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+  s = new stat_combo();
+  s->setWindowTitle("statistique ComboBox");
+  s->choix_pie();
+  s->show();
+}
+
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),tr("Excel Files (*.xls)"));
+            if (fileName.isEmpty())
+                return;
+
+            ExportExcelObject obj(fileName, "data", ui->afficher);
+
+            //colums to export
+            obj.addField(0, "numero", "char(20)");
+            obj.addField(1, "adresse", "char(20)");
+            obj.addField(2, "domaine", "char(20)");
+            obj.addField(3, "contact", "char(20)");
+
+
+
+            int retVal = obj.export2Excel();
+            if( retVal > 0)
+            {
+                QMessageBox::information(this, tr("Done"), QString(tr("%1 records exported!")).arg(retVal));
+            }
 }

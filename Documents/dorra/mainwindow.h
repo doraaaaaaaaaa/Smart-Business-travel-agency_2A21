@@ -1,8 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "partenaire.h"
+#include "localisation.h"
+#include "localisation.h"
+#include "ui_localisation.h"
+#include "stat_combo.h"
+#include "ui_stat_combo.h"
 
 #include <QMainWindow>
+#include <QAxWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,8 +37,17 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
     Partenaire p;
+    //WebAxWidget  WebAxWidget;
+    stat_combo *s;
+      localisation *l;
 };
 #endif // MAINWINDOW_H

@@ -20,6 +20,8 @@ public:
 
 public:
     Ui::localisation *ui;
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // LOCALISATION_H

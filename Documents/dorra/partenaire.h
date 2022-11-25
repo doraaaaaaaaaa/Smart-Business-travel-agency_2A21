@@ -6,7 +6,6 @@
 #include<QtPrintSupport/QPrinter>
 #include<QtPrintSupport/QPrinterInfo>
 #include<QtPrintSupport/QPrintDialog>
-
 class Partenaire
 
 {
@@ -47,7 +46,8 @@ public:
        bool modifier(int numero);
         QSqlQueryModel * recherche(QString numero);
         QSqlQueryModel * trier(int test);
-        void pdf();
+
+        void  telechargerPDF();
 
 
 };
