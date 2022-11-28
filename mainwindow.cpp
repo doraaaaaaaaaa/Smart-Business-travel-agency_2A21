@@ -5,7 +5,8 @@
 #include<QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QPdfWriter>
-
+#include "dialog.h"
+#include "ui_dialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -224,12 +225,14 @@ void MainWindow::on_pb_pdf_clicked()
     }
 
 
-void MainWindow::on_pushButton_clicked()
+/*void MainWindow::on_pushButton_clicked()
 {
     {
-        QString username,password;
+
+        QString username;
+        int password;
         username=ui->le_nom->text();
-        password=ui->le_mdp->text();
+        password=ui->le_mdp->text().toInt();
         QSqlQuery qry;
         qry.prepare("select * from Employee where NOM='"+username+"'and MDPS='"+password+"'");
 
@@ -268,4 +271,52 @@ void MainWindow::on_pushButton_clicked()
 
     }
 
+}*/
+
+void MainWindow::on_Log_In_clicked()
+{
+    QString username,prenom;
+
+    username=ui->le_nom->text();
+   prenom=ui->le_mdp->text();
+    QSqlQuery qry;
+    qry.prepare("select * from Employee where NOM='"+username+"'and prenom='"+prenom+"'");
+
+    if (qry.exec())
+{
+
+int j=0;
+        while(qry.next())
+        {
+
+            j++;
+        }
+        if(j==1)
+        {
+            QMessageBox::information(nullptr,QObject::tr("login done"),
+                                     QObject::tr("login succesfully \n"
+                                                 "Click Cancel to exit."),QMessageBox::Cancel);
+
+
+
+
 }
+        if(j>1)
+        {
+            QMessageBox::critical(nullptr,QObject::tr("login failed"),
+                                    QObject::tr("user already connected  \n"
+                                                "Click Cancel to exit."),QMessageBox::Cancel);
+            Dialog d;
+            d.setModal(true);
+            d.exec();
+        }
+        if(j<1)
+        {
+            QMessageBox::critical(nullptr,QObject::tr("login failed"),
+                                    QObject::tr("wrong username or password \n"
+                                                "Click Cancel to exit."),QMessageBox::Cancel);
+        }
+    }
+
+}
+

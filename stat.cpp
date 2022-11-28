@@ -38,7 +38,7 @@ int tot=0;
 
 
 
-    tot=tot/2;
+
 
 
     // Assign names to the set of bars used
@@ -46,14 +46,15 @@ int tot=0;
             QBarSet *set1 = new QBarSet("Femme");
 
             // Assign values for each bar
-            *set0 << c1;
-            *set1 << c2;
+           *set0 << c1;
+           *set1 << c2;
 
 
 
             // Add all sets of data to the chart as a whole
             // 1. Bar Chart
             QBarSeries *series = new QBarSeries();
+
 
             // 2. Stacked bar chart
             series->append(set0);
@@ -70,7 +71,7 @@ int tot=0;
             chart->setTheme( QChart::ChartThemeBlueCerulean);
 
             QStringList categories;
-                categories << "Homme" << "Femme" ;
+                categories << "Genre" ;
             // Adds categories to the axes
                 QBarCategoryAxis *axisX = new QBarCategoryAxis();
                     axisX->append(categories);
@@ -78,7 +79,7 @@ int tot=0;
                     series->attachAxis(axisX);
 
                     QValueAxis *axisY = new QValueAxis();
-                    axisY->setRange(0,tot);
+
                     chart->addAxis(axisY, Qt::AlignLeft);
                     series->attachAxis(axisY);
 
