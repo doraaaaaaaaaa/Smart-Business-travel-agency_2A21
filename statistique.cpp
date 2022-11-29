@@ -34,7 +34,7 @@ void statistique::choix_bar()
 
 
     //Les classes de type Maison d'Hote
-    q2_1.prepare("SELECT * FROM HEBERGEMENT WHERE TYPE_H='Maison d'Hote'");
+    q2_1.prepare("SELECT * FROM HEBERGEMENT WHERE TYPE_H='Maison dHote'");
     q2_1.exec();
 
 
@@ -58,7 +58,7 @@ void statistique::choix_bar()
 
     // Assign names to the set of bars used
             QBarSet *set0 = new QBarSet("Hotel");
-            QBarSet *set1 = new QBarSet("Maison d'Hote");
+            QBarSet *set1 = new QBarSet("Maison dHote");
             QBarSet *set2 = new QBarSet("AirBnb");
 
 

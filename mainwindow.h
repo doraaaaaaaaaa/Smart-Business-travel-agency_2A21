@@ -18,6 +18,7 @@
 #include <QtCharts/QHorizontalStackedBarSeries>
 #include <QValueAxis>
 #include <QWidget>
+#include "arduino.h"
 
 namespace Ui { class MainWindow; }
 
@@ -48,14 +49,10 @@ void on_triPrix_clicked();
 void on_lineEdit_Rech_textChanged(const QString &arg1); //Rech
 
 void on_PDF_clicked();
-
 void on_stat_clicked();
-
 void on_Send_mail_clicked();
-
-
 void on_pushButton_Picture_clicked();
-
+void update_label();
 private:
     Ui::MainWindow *ui;
     hebergement H;
@@ -64,5 +61,7 @@ private:
     QWidget  WebAxWidget;
     Mail *sm;
     Picture *p;
+    arduino A;
+    QByteArray data;
 };
 #endif // MAINWINDOW_H

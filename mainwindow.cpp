@@ -17,12 +17,26 @@
 #include<QApplication>
 #include <QUrl>
 #include<QSqlQueryModel>
+#include"arduino.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+            switch(ret){
+            case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                break;
+            case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+               break;
+            case(-1):qDebug() << "arduino is not available";
+            }
+             QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+             //le slot update_label suite à la reception du signal readyRead (reception des données).
+
+
     ui->lineEdit_code_h->setValidator( new QIntValidator(0, 999999, this));
     ui->tableView->setModel(H.afficher());
     QRegularExpression rx("^[A-Za-z]+$");//controle de saisie.
@@ -237,4 +251,96 @@ void MainWindow::on_pushButton_Picture_clicked()
     p=new Picture(this);
     p->show();
 }
+QString ch="";
+ void MainWindow::update_label()
+{
+          QSqlQuery query;
+          QByteArray data="";
+          QString nom="" ,adresse="", prix="",FAX="";
+
+         data=A.read_from_arduino();
+          qDebug() <<  " data is " <<data;
+          ch=ch+data;
+          qDebug() <<  " ch is " <<ch;
+
+
+         if(ch!="" && ch.length()==12)
+            {
+             if(ch==" E3 D4 80 A7")
+              {
+              QString code_h="123";
+              query.prepare("SELECT* FROM HEBERGEMENT WHERE code_h='"+code_h+"'  ");
+              qDebug() << query.exec();
+              while (query.next())
+              {
+              nom =query.value(2).toString();
+              adresse=query.value(3).toString();
+              prix=query.value(4).toString();
+              FAX=query.value(5).toString();
+
+              }
+              qDebug() << nom;
+              qDebug() << adresse;
+              qDebug() << prix;
+              qDebug() << FAX;
+
+              ui->lineEdit_nom_h->setText(nom);
+              ui->lineEdit_adresse_h->setText(adresse);
+              ui->lineEdit_prix_h->setText(prix);
+              ui->lineEdit_FAX_h->setText(FAX);
+
+              QString message ="Bienvenue "+ nom;
+              QByteArray br = message.toUtf8();
+              A.write_to_arduino(br);
+              }
+
+
+             else if(ch==" B3 AA 9F 92")
+             {
+             QString code_h="125";
+             query.prepare("SELECT* FROM HEBERGEMENT WHERE code_h='"+code_h+"'  ");
+             qDebug() << query.exec();
+             while (query.next())
+             {
+             nom =query.value(2).toString();
+             adresse=query.value(3).toString();
+             prix=query.value(4).toString();
+             FAX=query.value(5).toString();
+
+             }
+             qDebug() << nom;
+             qDebug() << adresse;
+             qDebug() << prix;
+             qDebug() << FAX;
+
+             ui->lineEdit_nom_h->setText(nom);
+             ui->lineEdit_adresse_h->setText(adresse);
+             ui->lineEdit_prix_h->setText(prix);
+             ui->lineEdit_FAX_h->setText(FAX);
+
+             QString message ="Bienvenue "+ nom;
+             QByteArray br = message.toUtf8();
+             A.write_to_arduino(br);
+             }
+
+             else
+             {
+                 QString message ="donne inaccessible";
+                 QByteArray br = message.toUtf8();
+                 A.write_to_arduino(br);
+                 QMessageBox::critical(nullptr,QObject::tr("login failed"),
+                                         QObject::tr("FAILED TO connected ..........  \n"
+                                                      "acces denied \n"
+
+                                                     "Click Cancel to exit."),QMessageBox::Cancel);
+             }
+
+            }
+
+         if(ch.length()==12)
+          {
+          ch="";
+          }
+}
+
 
