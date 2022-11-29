@@ -5,7 +5,7 @@
 #include <QMessageBox>
 
 #include <QMainWindow>
-
+#include"arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -20,6 +20,7 @@ public:
 
 private slots:
     void on_pb_ajouter_clicked();
+  //  QByteArray don;
 
   // void on_pb_supp_2_clicked();
 
@@ -43,12 +44,17 @@ private slots:
 
     void on_Log_In_clicked();
 
+    void update();
+
+
 private:
     Ui::MainWindow *ui;
     Employe e;
     QChartView *chartView ;
     statistique *s;
-
+     Arduino A;
+QByteArray don;
+QByteArray ch;
 
 };
 #endif // MAINWINDOW_H

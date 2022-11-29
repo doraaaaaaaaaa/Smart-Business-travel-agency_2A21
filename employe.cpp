@@ -115,3 +115,28 @@ QSqlQueryModel * Employe::trier(int test)
     return model;
 
 }
+
+
+bool Employe::existance(QString id)
+{
+    QMessageBox msgBox;
+    QSqlQuery query;
+    int count=0;
+    query.prepare("SELECT * FROM Employee WHERE id_emp= ?");
+    query.addBindValue(id);
+    if(query.exec() )
+    {
+        while (query.next())
+        {
+            count ++;
+        }
+        if(count==1)
+        {
+            //msgBox.setText("id deja existe");
+            //msgBox.exec();
+            return 0;
+        }
+
+    }
+    return 1;
+}

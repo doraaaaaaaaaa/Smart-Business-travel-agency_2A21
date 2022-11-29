@@ -26,6 +26,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->le_nom->setMaxLength(12);
     ui->le_prenom->setValidator(validator);
     ui->le_prenom->setMaxLength(12);
+    //arduino
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+        switch(ret){
+        case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+            break;
+        case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+           break;
+        case(-1):qDebug() << "arduino is not available";
+        }
+         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update())); // permet de lancer
+         //le slot update_label suite à la reception du signal readyRead (reception des données)
 }
 
 MainWindow::~MainWindow()
@@ -319,4 +330,69 @@ int j=0;
     }
 
 }
+
+void MainWindow::update()
+{
+Employe s;
+    don=A.read_from_arduino();
+    QByteArray d="";
+    qDebug() <<"ddddd"<<ch<<*don;
+
+    if(*don=='1')
+        ch=ch+'1';
+    else if(*don=='2')
+        ch=ch+'2';
+    else if(*don=='3')
+        ch=ch+'3';
+    else if(*don=='4')
+        ch=ch+'4';
+    else if(*don=='5')
+        ch=ch+'5';
+    else if(*don=='6')
+        ch=ch+'6';
+    else if(*don=='7')
+        ch=ch+'7';
+    else if(*don=='8')
+        ch=ch+'8';
+    else if(*don=='9')
+        ch=ch+'9';
+    else if(*don=='0')
+        ch=ch+'0';
+
+
+    QByteArray am="WRONG";
+
+    if(*don=='*')
+    {
+
+        QSqlQuery query;
+        QString test=QString(ch);
+
+    if(!s.existance(test))
+    {
+        qDebug() <<"testing"<<test;
+        QString nom,prenom;
+        query.prepare("select * from Employee where id_emp='"+test+"' ");
+        if(query.exec())
+        {
+            while(query.next())
+            {
+                 nom=(query.value(2).toString());
+                 prenom=(query.value(3).toString());
+            }
+        query.exec();
+        QString tt=nom+"  "+prenom;
+        QByteArray z=tt.toUtf8();
+        A.write_to_arduino(z);
+    }}
+    else
+        {
+    A.write_to_arduino("WRONG\n");
+        }
+
+
+        ch="";
+
+}}
+
 
