@@ -9,7 +9,7 @@
 
 #include <QMainWindow>
 #include <QAxWidget>
-
+#include"arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,6 +42,7 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_7_clicked();
+    void update();
 
 private:
     Ui::MainWindow *ui;
@@ -49,5 +50,7 @@ private:
     //WebAxWidget  WebAxWidget;
     stat_combo *s;
       localisation *l;
+
+      Arduino A;
 };
 #endif // MAINWINDOW_H

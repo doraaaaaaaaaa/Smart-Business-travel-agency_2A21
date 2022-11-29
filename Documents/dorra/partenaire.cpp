@@ -175,18 +175,29 @@ Partenaire::Partenaire()//constructeur par defaut
                              i = i + 500;
                           }}
 
- void ChercherFromArduino()
 
- {Arduino a;
-     QByteArray d;
 
-     d=a.read_from_arduino();
-     if (d!="")
+ bool Partenaire::existance(QString id)
+ {
+     QMessageBox msgBox;
+     QSqlQuery query;
+     int count=0;
+     query.prepare("SELECT * FROM PARTENAIRE WHERE numero_p= ?");
+     query.addBindValue(id);
+     if(query.exec() )
      {
-         QSqlQueryModel * model= new QSqlQueryModel();
+         while (query.next())
+         {
+             count ++;
+         }
+         if(count==1)
+         {
+             //msgBox.setText("numero deja existe");
+             //msgBox.exec();
+             return 0;
+         }
 
-         model->setQuery("SELECT * FROM PARTENAIRE WHERE NUMERO_P LIKE '"+d+"'  ");
      }
-
-
+     return 1;
  }
+
