@@ -36,6 +36,7 @@ public:
          bool modifier();
 QSqlQueryModel * recherche(QString id);
 QSqlQueryModel * trier(int test);
+bool existance(QString );
 
 
 };

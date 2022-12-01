@@ -14,18 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tableView->setModel(e.afficher());
 
-    ui->le_mdp->setValidator(new QIntValidator(0,999999,this));
-    ui->le_IDemploye->setValidator(new QIntValidator(0,999999,this));
-
-    QRegularExpression rw("^[A-Z a-z]+$");
-    QValidator *validator = new  QRegularExpressionValidator(rw,this);
-
-    ui->le_nom->setValidator(validator);
-    ui->le_nom->setMaxLength(12);
-    ui->le_prenom->setValidator(validator);
-    ui->le_prenom->setMaxLength(12);
     //arduino
     int ret=A.connect_arduino(); // lancer la connexion à arduino
         switch(ret){
@@ -43,6 +32,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+/*
 void MainWindow::on_pb_ajouter_clicked()
 {
 
@@ -235,7 +225,7 @@ void MainWindow::on_pb_pdf_clicked()
 
     }
 
-
+*/
 /*void MainWindow::on_pushButton_clicked()
 {
     {
@@ -289,7 +279,7 @@ void MainWindow::on_Log_In_clicked()
     QString username,prenom;
 
     username=ui->le_nom->text();
-   prenom=ui->le_mdp->text();
+   prenom=ui->le_prenom->text();
     QSqlQuery qry;
     qry.prepare("select * from Employee where NOM='"+username+"'and prenom='"+prenom+"'");
 
@@ -309,24 +299,19 @@ int j=0;
                                                  "Click Cancel to exit."),QMessageBox::Cancel);
 
 
-
+            Dialog d;
+            d.setModal(true);
+            d.exec();
 
 }
-        if(j>1)
+        else
         {
             QMessageBox::critical(nullptr,QObject::tr("login failed"),
                                     QObject::tr("user already connected  \n"
                                                 "Click Cancel to exit."),QMessageBox::Cancel);
-            Dialog d;
-            d.setModal(true);
-            d.exec();
+
         }
-        if(j<1)
-        {
-            QMessageBox::critical(nullptr,QObject::tr("login failed"),
-                                    QObject::tr("wrong username or password \n"
-                                                "Click Cancel to exit."),QMessageBox::Cancel);
-        }
+
     }
 
 }

@@ -1,5 +1,5 @@
 QT       += core gui sql
-QT+= sql
+QT+= sql serialport
 QT+=charts printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     connexion.cpp \
     dialog.cpp \
     employe.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     stat.cpp
 
 HEADERS += \
+    arduino.h \
     connexion.h \
     dialog.h \
     employe.h \

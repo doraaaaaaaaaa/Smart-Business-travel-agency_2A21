@@ -47,7 +47,7 @@
      <widget class="QGroupBox" name="Log_in">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>50</x>
         <y>30</y>
         <width>1231</width>
         <height>381</height>
@@ -136,33 +136,6 @@
         <string>Nom</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pb_ajouter">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>310</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>+ Ajouter</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="le_mdp">
        <property name="geometry">
         <rect>
@@ -216,37 +189,6 @@
        </property>
        <property name="text">
         <string>Prénom</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pb_supp">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>310</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>:/new/boutons/supp2.jpg</normaloff>:/new/boutons/supp2.jpg</iconset>
        </property>
       </widget>
       <widget class="QLabel" name="label_8">
@@ -331,68 +273,6 @@
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="pb_modifier">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>140</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>ArrowCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../validation - Copie (2)/resource.qrc">
-         <normaloff>:/new/boutons/modifier.png</normaloff>:/new/boutons/modifier.png</iconset>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pb_supp_2">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>310</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>Afficher</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>:/new/boutons/supp2.jpg</normaloff>:/new/boutons/supp2.jpg</iconset>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="le_nom">
        <property name="geometry">
         <rect>
@@ -425,24 +305,11 @@
         </font>
        </property>
       </widget>
-      <widget class="QPushButton" name="Afficher_stat">
-       <property name="geometry">
-        <rect>
-         <x>850</x>
-         <y>80</y>
-         <width>131</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Afficher statistiques</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="Log_In">
        <property name="geometry">
         <rect>
-         <x>600</x>
-         <y>230</y>
+         <x>790</x>
+         <y>280</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -478,283 +345,6 @@
       <property name="text">
        <string>Gestion Des Employés</string>
       </property>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_2">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>460</y>
-        <width>781</width>
-        <height>451</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Century Gothic</family>
-        <pointsize>13</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="title">
-       <string>Liste Des Employés</string>
-      </property>
-      <widget class="QPushButton" name="pb_recher">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>50</y>
-         <width>121</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 170, 170);
-border-color: rgb(138, 138, 138);
-color: rgb(45, 45, 45)</string>
-       </property>
-       <property name="text">
-        <string>Recherche</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../validation - Copie (2)/resource.qrc">
-         <normaloff>:/new/boutons/recher1.png</normaloff>:/new/boutons/recher1.png</iconset>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>50</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>10</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-border-color: rgb(138, 138, 138);
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.186957 rgba(97, 97, 97, 30), stop:0.930435 rgba(150, 150, 150, 48))</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pb_tri">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>370</y>
-         <width>81</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>Trier</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>:/new/boutons/tri2.png</normaloff>:/new/boutons/tri2.png</iconset>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_2">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>370</y>
-         <width>171</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>8</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(225, 225, 225)</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>nom</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>id</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>date de naissance</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QTableView" name="tableView">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>100</y>
-         <width>661</width>
-         <height>261</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_3">
-      <property name="geometry">
-       <rect>
-        <x>950</x>
-        <y>550</y>
-        <width>251</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Century Gothic</family>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="title">
-       <string>Exporter info employé</string>
-      </property>
-      <widget class="QPushButton" name="pb_pdf">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>30</y>
-         <width>101</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../validation - Copie (2)/resource.qrc">
-         <normaloff>:/new/boutons/pdf1.png</normaloff>:/new/boutons/pdf1.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>25</width>
-         <height>34</height>
-        </size>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="geometry">
-       <rect>
-        <x>940</x>
-        <y>660</y>
-        <width>251</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Century Gothic</family>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="title">
-       <string>Envoyer Un Mail</string>
-      </property>
-      <widget class="QPushButton" name="pb_mail">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>30</y>
-         <width>81</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(225, 225, 225)</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="../validation - Copie (2)/resource.qrc">
-         <normaloff>:/new/boutons/mailing3.jpg</normaloff>:/new/boutons/mailing3.jpg</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>37</width>
-         <height>36</height>
-        </size>
-       </property>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -838,8 +428,6 @@ Publicité TELECOM</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
