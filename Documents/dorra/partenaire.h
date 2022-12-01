@@ -48,7 +48,7 @@ public:
         QSqlQueryModel * trier(int test);
 
         void  telechargerPDF();
-
+bool existance(QString );
 
 };
 

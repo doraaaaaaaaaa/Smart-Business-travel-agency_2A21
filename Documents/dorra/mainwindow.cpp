@@ -247,7 +247,7 @@ void MainWindow::update()
 {
 Partenaire p;
     don=A.read_from_arduino();
-    QByteArray d="";
+
     qDebug() <<"ddddd"<<ch<<*don;
 
     if(*don=='1')
@@ -272,7 +272,6 @@ Partenaire p;
         ch=ch+'0';
 
 
-    QByteArray am="WRONG";
 
     if(*don=='*')
     {
@@ -294,7 +293,7 @@ Partenaire p;
             }
         query.exec();
         QString tt=nom+"  "+prenom;
-        QByteArray z=tt.toUtf8();
+        QByteArray z=tt.toUtf8();//qstring to qbtearray
         A.write_to_arduino(z);
     }}
     else
