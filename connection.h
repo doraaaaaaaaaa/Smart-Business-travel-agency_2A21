@@ -3,7 +3,7 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-#include<QModelIndex>
+#include <QDebug>
 class Connection
 {
 public:
