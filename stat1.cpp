@@ -1,4 +1,4 @@
-#include "stat.h"
+#include "stat1.h"
 #include "ui_stat.h"
 
 statistique::statistique(QWidget *parent) :

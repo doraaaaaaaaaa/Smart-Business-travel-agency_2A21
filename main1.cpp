@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "mainwindow1.h"
 #include <QApplication>
 #include <QMessageBox>
-#include"connexion.h"
+#include"connexion1.h"
 #include <QApplication>
 #include "employe.h"
 

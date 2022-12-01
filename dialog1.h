@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include"employe.h"
-#include"stat.h"
+#include"stat1.h"
 
 namespace Ui {
 class Dialog;

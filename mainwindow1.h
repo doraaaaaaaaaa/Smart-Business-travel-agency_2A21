@@ -1,11 +1,11 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW1_H
+#define MAINWINDOW1_H
 #include "employe.h"
-#include "stat.h"
+#include "stat1.h"
 #include <QMessageBox>
 
 #include <QMainWindow>
-#include"arduino.h"
+#include"arduino1.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -21,26 +21,6 @@ public:
 private slots:
     void on_pb_ajouter_clicked();
   //  QByteArray don;
-
-  // void on_pb_supp_2_clicked();
-
-
-
-    void on_pb_supp_clicked();
-
-    void on_pb_modifier_clicked();
-
-    void on_tableView_activated(const QModelIndex &index);
-
-    void on_pb_recher_clicked();
-
-    void on_comboBox_2_activated(const QString &arg1);
-
-    void on_Afficher_stat_clicked();
-
-    void on_pb_pdf_clicked();
-
-    void on_pushButton_clicked();
 
     void on_Log_In_clicked();
 

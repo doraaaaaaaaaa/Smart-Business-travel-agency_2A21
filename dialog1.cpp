@@ -1,4 +1,4 @@
-#include "dialog.h"
+#include "dialog1.h"
 #include "ui_dialog.h"
 #include <QPdfWriter>
 #include <QDesktopServices>

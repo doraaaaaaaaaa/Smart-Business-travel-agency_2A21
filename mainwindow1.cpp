@@ -1,11 +1,11 @@
-#include "mainwindow.h"
+#include "mainwindow1.h"
 #include "ui_mainwindow.h"
 #include <QDesktopServices>
 #include<QPrinter>
 #include<QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QPdfWriter>
-#include "dialog.h"
+#include "dialog1.h"
 #include "ui_dialog.h"
 
 

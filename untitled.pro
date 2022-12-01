@@ -18,26 +18,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    arduino.cpp \
-    connexion.cpp \
-    dialog.cpp \
+    arduino1.cpp \
+    connexion1.cpp \
+    dialog1.cpp \
     employe.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    stat.cpp
+    main1.cpp \
+    mainwindow1.cpp \
+    stat1.cpp
 
 HEADERS += \
-    arduino.h \
-    connexion.h \
-    dialog.h \
+    arduino1.h \
+    connexion1.h \
+    dialog1.h \
     employe.h \
-    mainwindow.h \
-    stat.h
+    mainwindow1.h \
+    stat1.h
 
 FORMS += \
-    dialog.ui \
-    mainwindow.ui \
-    stat.ui
+    dialog1.ui \
+    mainwindow1.ui \
+    stat1.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -45,6 +45,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resource.qrc \
-    ressourcesponso.qrc
+    resource1.qrc \
+    ressourcesponso1.qrc
 
