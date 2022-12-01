@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/prefix1_bouttons">
+        <file>plus +.png</file>
+        <file>cal1.png</file>
+        <file>cal2.jpg</file>
+        <file>loc1.webp</file>
+        <file>loc2.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>ressource.qrc</file>
+    </qresource>
+</RCC>
