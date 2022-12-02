@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/new/boutons">
+        <file>mailing1.png</file>
+        <file>mailing2.png</file>
+        <file>mailing3.jpg</file>
+        <file>modifier.png</file>
+        <file>modifier2.webp</file>
+        <file>pdf1.png</file>
+        <file>pdf2.jpg</file>
+        <file>plus +.png</file>
+        <file>recher1.png</file>
+        <file>recher2.png</file>
+    </qresource>
+</RCC>

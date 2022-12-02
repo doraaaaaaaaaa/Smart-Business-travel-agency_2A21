@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>calendrier1.png</file>
+        <file>calendrier2.jpg</file>
+        <file>calendrier3.jpg</file>
+        <file>localisation1.png</file>
+    </qresource>
+</RCC>
