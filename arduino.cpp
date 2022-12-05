@@ -2,7 +2,6 @@
 
 Arduino::Arduino()
 
-
 {
     data="";
     arduino_port_name="";

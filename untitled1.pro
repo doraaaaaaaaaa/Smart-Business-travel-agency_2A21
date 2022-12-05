@@ -1,8 +1,20 @@
+QT += widgets
 QT       += core gui
 QT       += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
 QT       += core printsupport  gui sql network serialport axcontainer
 QT += printsupport network
-
+QT +=sql
+QT += widgets
+QT += printsupport
+QT += core
+QT += core gui charts
+QT += charts
+QT += network
+QT += quick
+QT += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
+QT += gui
+QT+= sql
+QT += serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -19,34 +31,53 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Mail.cpp \
     arduino.cpp \
+    arduino1.cpp \
     connexion1.cpp \
     dialog1.cpp \
     employe.cpp \
     exportexcel.cpp \
+    hebergement.cpp \
     localisation.cpp \
     main1.cpp \
     mainwindow1.cpp \
+    mission.cpp \
     partenaire.cpp \
-    stat1.cpp
+    picture.cpp \
+    smtp.cpp \
+    stat1.cpp \
+    statistique2.cpp \
+    vol.cpp
 
 HEADERS += \
+    Mail.h \
     arduino.h \
+    arduino1.h \
     connexion1.h \
     dialog1.h \
     employe.h \
     exportexcel.h \
+    hebergement.h \
     localisation.h \
     mainwindow1.h \
     mapping.h \
+    mission.h \
     partenaire.h \
-    stat1.h
+    picture.h \
+    smtp.h \
+    stat1.h \
+    statistique2.h \
+    vol.h
 
 FORMS += \
+    Mail.ui \
     dialog1.ui \
     localisation.ui \
     mainwindow1.ui \
-    stat1.ui
+    picture.ui \
+    stat1.ui \
+    statistique2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

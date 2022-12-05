@@ -1,6 +1,5 @@
 #ifndef STAT_H
 #define STAT_H
-
 #include <QDialog>
 #include <QDialog>
 #include <QSqlDatabase>
@@ -33,8 +32,8 @@ public:
     ~statistique();
     QChartView *chartView ;
     void choix_bar();
-
     void choix_pie();
+    void choix_bar2();
 private:
     Ui::stat *ui;
 };

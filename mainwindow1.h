@@ -3,7 +3,6 @@
 #include "employe.h"
 #include "stat1.h"
 #include <QMessageBox>
-
 #include <QMainWindow>
 #include"arduino.h"
 QT_BEGIN_NAMESPACE
@@ -22,7 +21,6 @@ private slots:
   //  QByteArray don;
 
     void on_Log_In_clicked();
-
     void update();
 
 
@@ -32,9 +30,8 @@ private:
     QChartView *chartView ;
     statistique *s;
      Arduino A;
-QByteArray don;
-QByteArray ch;
-
+     QByteArray don;
+     QByteArray ch;
 };
 #endif // MAINWINDOW_H
 
